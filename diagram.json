@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "author": "Дмитро Силкін",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": 135, "left": 85.8, "attrs": {} },
+      { "type": "wokwi-ky-040", "id": "encoder1", "top": -75.1, "left": -96.8, "attrs": {} },
+      {
+        "type": "board-ssd1306",
+        "id": "oled1",
+        "top": 473.54,
+        "left": 192.23,
+        "attrs": { "i2cAddress": "0x3c" }
+      },
+      { "type": "wokwi-gnd", "id": "gnd1", "top": 0, "left": 18.6, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc1", "top": -53, "left": 42.44, "rotate": 90, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc2", "top": 27.84, "left": 422.6, "rotate": 180, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd2", "top": 470.4, "left": 95.4, "attrs": {} },
+      {
+        "type": "wokwi-led-ring",
+        "id": "ring1",
+        "top": -95.23,
+        "left": 390.06,
+        "attrs": { "pixels": "8" }
+      },
+      { "type": "wokwi-gnd", "id": "gnd3", "top": 19.2, "left": 383.4, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc3", "top": 365.56, "left": 230.4, "attrs": {} }
+    ],
+    "connections": [
+      [ "nano:A5", "oled1:SCL", "green", [ "v48", "h-9.6" ] ],
+      [ "nano:A4", "oled1:SDA", "green", [ "v28.8", "h19.2", "v38.4", "h-9.6" ] ],
+      [ "encoder1:GND", "gnd1:GND", "black", [ "h0" ] ],
+      [ "vcc1:VCC", "encoder1:VCC", "red", [ "v0" ] ],
+      [ "nano:5V", "oled1:VCC", "red", [ "v38.4", "h-48" ] ],
+      [ "vcc2:VCC", "nano:5V", "red", [ "v0" ] ],
+      [ "gnd2:GND", "nano:GND.1", "black", [ "v-9.6", "h115.2" ] ],
+      [ "oled1:GND", "gnd2:GND", "black", [ "v-67.2", "h-9.6" ] ],
+      [ "ring1:VCC", "nano:5V", "red", [ "v134.4", "h-134.4" ] ],
+      [ "ring1:GND", "nano:GND.1", "black", [ "v115.2", "h-96" ] ],
+      [ "ring1:DIN", "nano:6", "magenta", [ "v19.2", "h-192" ] ],
+      [ "encoder1:SW", "nano:5", "green", [ "h48", "v76.9", "h-9.6" ] ],
+      [ "encoder1:DT", "nano:4", "green", [ "h57.6", "v96.1", "h-9.6" ] ],
+      [ "encoder1:CLK", "nano:3", "green", [ "h67.2", "v124.8", "h-9.6" ] ],
+      [ "ring1:DIN", "uno:6", "magenta", [ "v57.6", "h-153.6" ] ],
+      [ "encoder1:CLK", "uno:4", "green", [ "h0" ] ],
+      [ "encoder1:DT", "uno:3", "green", [ "h0" ] ],
+      [ "encoder1:SW", "uno:5", "green", [ "h0" ] ],
+      [ "ring1:VCC", "vcc2:VCC", "red", [ "v0" ] ],
+      [ "gnd3:GND", "ring1:GND", "black", [ "v0" ] ],
+      [ "oled1:SCL", "uno:A5", "green", [ "v-86.4", "h96.3" ] ],
+      [ "uno:A4", "oled1:SDA", "green", [ "v57.5", "h-72.6" ] ],
+      [ "vcc3:VCC", "oled1:VCC", "red", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
